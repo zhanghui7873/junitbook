@@ -100,7 +100,7 @@
 			</junit>
 	</target>
 	
-	<target name="junit-report" depends="junit,testsuite">
+	<target name="junit-report" depends="junit">
 	<!-- 产生单元测试报表文档 -->
 	   <junitreport todir="${test.result}">
 	   <fileset dir="${test.result}">
