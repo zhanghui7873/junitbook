@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="junit" default="junit" basedir=".">
+
+	<property name="build" value="${basedir}/build" />
+	<property name="test.source" value="${basedir}/src" />
+	<property name="test.lib" value="${basedir}/lib" />
+	<property name="test.log" value="${basedir}/log" />
+	<property name="test.classes" value="${build}/test-classes" />
+	<property name="test.temp" value="${build}/test-temp" />
+	<property name="test.reports" value="${build}/test-reports" />
+	<property name="test.result" value="${build}/result"/> 
+	<property name="env" value="" />
+	<property name="browser" value="" />
+
+	<path id="test.compile.path">
+		<fileset dir="${test.lib}">
+			<include name="**/*.jar" />
+			<include name="${test.source}" />
+		</fileset>
+	</path>
+
+	<path id="test.run.path">
+		<path refid="test.compile.path" />
+		<path location="${test.classes}" />
+	</path>
+
+	<!-- ================================= 
+          target: clean              
+         ================================= -->
+	<target name="clean">
+		<delete dir="${test.classes}" />
+		<delete dir="${test.temp}" />
+		<delete dir="${test.reports}" />
+		<delete dir="${test.result}" />
+		<!--<delete includeEmptyDirs="true" verbose="true" quiet="true">
+			<fileset dir="${test.log}" excludes="snapshot/*"/>
+		</delete>-->
+		<delete dir="${test.log}" />
+	</target>
+
+	<!-- ================================= 
+          target: init              
+         ================================= -->
+	<target name="init" depends="clean">
+		<mkdir dir="${build}" />
+		<mkdir dir="${test.classes}" />
+		<mkdir dir="${test.temp}" />
+		<mkdir dir="${test.reports}" />
+		<mkdir dir="${test.result}" />
+	</target>
+
+	<!-- ================================= 
+          target: compile              
+         ================================= -->
+	<target name="compile" depends="init" description="Compile the JUnit test sources">
+		<echo level="info" message="Compile the JUnit test sources" />
+		<javac destdir="${test.classes}" debug="on" debuglevel="lines,vars,source" encoding="UTF-8" includeantruntime="on">
+			<src path="${test.source}">
+			</src>
+			<classpath refid="test.compile.path">
+			</classpath>
+		</javac>
+		<copy todir="${test.classes}">
+			<fileset dir="${test.source}">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+		<!-- ================================= 
+          target: gittest              
+         ================================= -->
+	<target name="junit" depends="compile" description="Run mary unit test">
+		<echo level="info" message="Running mary demo JUnit test" />
+		<junit printsummary="yes" fork="true" maxmemory="512m" tempdir="${test.temp}">
+			<jvmarg value="-Denv=${env}" />
+			<jvmarg value="-Dbrowser=${browser}" />
+			<classpath refid="test.run.path" />
+			<formatter type="plain" />
+			<batchtest todir="${test.reports}" haltonfailure="no">
+				<fileset dir="${test.classes}">
+					<include name="**/com/test/*Test.class" />
+				</fileset>
+			</batchtest>
+		</junit>
+		
+	</target>
+</project>
