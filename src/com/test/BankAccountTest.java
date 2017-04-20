@@ -20,7 +20,7 @@ public class BankAccountTest{
 	
 	@Test
 	public void addTwotest() {
-		assertEquals("assert add method",11,Bank.addTwo(a1, b1));
+		assertEquals("assert add method 1",11,Bank.addTwo(a1, b1));
 		System.out.println("test mary successfully");
 		
 	}
