@@ -67,7 +67,7 @@
 		</copy>
 	</target>
 		<!-- ================================= 
-          target: gittest              
+          target: junit              
          ================================= -->
 	<target name="junit" depends="compile" description="Run mary unit test">
 		<echo level="info" message="Running mary demo JUnit test" />
@@ -84,4 +84,20 @@
 		</junit>
 		
 	</target>
+	
+	<target name="testsuite" depends="compile" description="Run mary unit test">
+			<echo level="info" message="Running mary testsuite" />
+			<junit printsummary="yes" fork="true" maxmemory="512m" tempdir="${test.temp}">
+				<jvmarg value="-Denv=${env}" />
+				<jvmarg value="-Dbrowser=${browser}" />
+				<classpath refid="test.run.path" />
+				<formatter type="plain" />
+				<batchtest todir="${test.reports}" haltonfailure="no">
+					<fileset dir="${test.classes}">
+						<include name="**/com/testsuite/*.class" />
+					</fileset>
+				</batchtest>
+			</junit>
+			
+		</target>
 </project>
