@@ -75,7 +75,7 @@
 			<jvmarg value="-Denv=${env}" />
 			<jvmarg value="-Dbrowser=${browser}" />
 			<classpath refid="test.run.path" />
-			<formatter type="plain" />
+			<formatter type="xml" />
 			<batchtest todir="${test.reports}" haltonfailure="no">
 				<fileset dir="${test.classes}">
 					<include name="**/com/test/*Test.class" />
@@ -91,7 +91,7 @@
 				<jvmarg value="-Denv=${env}" />
 				<jvmarg value="-Dbrowser=${browser}" />
 				<classpath refid="test.run.path" />
-				<formatter type="plain" />
+				<formatter type="xml" />
 				<batchtest todir="${test.reports}" haltonfailure="no">
 					<fileset dir="${test.classes}">
 						<include name="**/com/testsuite/*.class" />
