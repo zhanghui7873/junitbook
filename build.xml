@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="junit" default="junit" basedir=".">
+<project name="junit" default="junit-report" basedir=".">
 
 	<property name="build" value="${basedir}/build" />
 	<property name="test.source" value="${basedir}/src" />
@@ -98,6 +98,17 @@
 					</fileset>
 				</batchtest>
 			</junit>
-			
-		</target>
+	</target>
+	
+	<target name="junit-report" depends="junit,testsuite">
+	<!-- 产生单元测试报表文档 -->
+	   <junitreport todir="${test.result}">
+	   <fileset dir="${test.result}">
+	    <include name="TEST-*.xml" />
+	    </fileset>
+	    <report format="frames" todir="${test.result}" />
+	    </junitreport>
+	</target>
+	
+	
 </project>
