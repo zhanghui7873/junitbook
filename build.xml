@@ -112,7 +112,7 @@
 	
 	  <!--打包-->
 	 <target name="pack" depends="junit" description="make .jar file">  
-	         <jar destfile="${test.log}/hello.jar" basedir="${test.classes}">  
+	         <jar destfile="${test.log}/junitbook.jar" basedir="${test.classes}">  
 	         </jar>  
 	  </target>  
 </project>
