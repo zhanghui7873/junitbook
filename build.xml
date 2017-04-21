@@ -47,6 +47,7 @@
 		<mkdir dir="${test.temp}" />
 		<mkdir dir="${test.reports}" />
 		<mkdir dir="${test.result}" />
+		<mkdir dir="${test.log}" />
 	</target>
 
 	<!-- ================================= 
@@ -99,7 +100,6 @@
 				</batchtest>
 			</junit>
 	</target>
-	
 	<target name="junit-report" depends="junit">
 	<!-- 产生单元测试报表文档 -->
 	   <junitreport todir="${test.result}">
@@ -110,5 +110,9 @@
 	    </junitreport>
 	</target>
 	
-	
+	  <!--打包-->
+	 <target name="pack" depends="junit" description="make .jar file">  
+	         <jar destfile="${test.log}/hello.jar" basedir="${test.classes}">  
+	         </jar>  
+	  </target>  
 </project>
