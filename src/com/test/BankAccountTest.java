@@ -1,8 +1,8 @@
 package com.test;
 
 import static org.junit.Assert.*;
-import junit.framework.TestCase;
-import junit.runner.*;
+import com.common.*;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

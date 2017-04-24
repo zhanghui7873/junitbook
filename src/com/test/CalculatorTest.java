@@ -1,6 +1,7 @@
 package com.test;
 
 import static org.junit.Assert.*;
+import com.common.*;
 
 import org.junit.After;
 import org.junit.Before;
@@ -8,12 +9,12 @@ import org.junit.Test;
 
 public class CalculatorTest {
 
-	private static Calculator calculator = new Calculator();
+	private  Calculator calculator = new Calculator();
 
-    // 复原操作，表明对每个Test方法测试以后都会进行这个方法操作。
+    // å¤�åŽŸæ“�ä½œï¼Œè¡¨æ˜Žå¯¹æ¯�ä¸ªTestæ–¹æ³•æµ‹è¯•ä»¥å�Žéƒ½ä¼šè¿›è¡Œè¿™ä¸ªæ–¹æ³•æ“�ä½œã€‚
     @Before
     public void setUp() throws Exception {
-        calculator.clear();// 结果清零
+        calculator.clear();// ç»“æžœæ¸…é›¶
     }
 
     @Test
@@ -32,7 +33,7 @@ public class CalculatorTest {
         assertEquals(8, calculator.getResult());
     }
 
-    // 忽略标注，表明这个方法功能还没有实现
+    // å¿½ç•¥æ ‡æ³¨ï¼Œè¡¨æ˜Žè¿™ä¸ªæ–¹æ³•åŠŸèƒ½è¿˜æ²¡æœ‰å®žçŽ°
     //@Ignore("Multiply() Not yet implemented")
     @Test
     public void testMultiply() {
@@ -47,7 +48,7 @@ public class CalculatorTest {
         assertEquals(4, calculator.getResult());
     }
 
-    // Timeout参数表明了你要设定的时间，单位为毫秒，因此1000就代表1秒。
+    // Timeoutå�‚æ•°è¡¨æ˜Žäº†ä½ è¦�è®¾å®šçš„æ—¶é—´ï¼Œå�•ä½�ä¸ºæ¯«ç§’ï¼Œå› æ­¤1000å°±ä»£è¡¨1ç§’ã€‚
     @Test(timeout = 1000)
     public void squareRoot() {
         calculator.squareRoot(4);
@@ -56,7 +57,7 @@ public class CalculatorTest {
     }
 
     /**
-     * square1/square2/square3分别用来测试正数，0，复数的平方
+     * square1/square2/square3åˆ†åˆ«ç”¨æ�¥æµ‹è¯•æ­£æ•°ï¼Œ0ï¼Œå¤�æ•°çš„å¹³æ–¹
      */
     @Test
     public void square1() {

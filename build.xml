@@ -79,7 +79,7 @@
 			<formatter type="xml" />
 			<batchtest todir="${test.result}" haltonfailure="no">
 				<fileset dir="${test.classes}">
-					<include name="**/com/test/Bank*Test.class" />
+					<include name="**/com/test/*Test.class" />
 				</fileset>
 			</batchtest>
 		</junit>
