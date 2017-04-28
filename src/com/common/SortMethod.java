@@ -255,8 +255,6 @@ public class SortMethod {
 //			printArray(array);
 //			System.out.println();
 	}
-
-
 	}
 	public static void printArray(int[] array) {
 		if (array == null || array.length == 0) {
@@ -267,7 +265,6 @@ public class SortMethod {
 			}
 		}
 	}
-
 	public static void swap(int[] aaray, int start, int end) {
 		int tt = array[start];
 		array[start] = array[end];
