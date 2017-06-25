@@ -15,7 +15,7 @@ public class MapSort {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
     MapSort.InputData();
-    MapSort.Print(list);
+    //MapSort.Print(list);
     MapSort.Mapsorting(list, com);
     MapSort.Print(list);
 	}

@@ -36,7 +36,6 @@ public class SortMethod {
 					break;
 				}
 			}
-
 		}
 		System.out.println("after:");
 		printArray(array);

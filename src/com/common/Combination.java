@@ -36,7 +36,7 @@ public static void combine(char []chs, int begin, int number, Stack<Character> s
 
 public static void main(String args[])
 {
-	char[] ch={'A','B','C'};
+	char[] ch={'A','B','C','D'};
 	Combination.combiantion(ch);
 }
 
